@@ -6,7 +6,8 @@
   justify-content: center;
 
   .card {
-    width: 50%;
+    width: 100%;
+    max-width: 900px;
     display: flex;
     flex-direction: row-reverse;
     background-color: white;

@@ -1,24 +1,29 @@
 .Register {
   height: 100vh;
+  width: 100vw;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 
   .card {
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     display: flex;
     flex-direction: row-reverse;
     background-color: white;
     border-radius: 10px;
-    min-height: 700px;
-    min-width: 580px;
+    min-height: 80vh;
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
     .left {
       flex: 1;
-      background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+      background: linear-gradient(
+          rgba(39, 11, 96, 0.5),
+          rgba(39, 11, 96, 0.5)
+        ),
         url("https://d.newsweek.com/en/full/2128024/cyberpunk-2077-night-city.webp?w=900&f=14359600aaf1bcd3382ef7740b1d4cbf")
           center;
       background-size: cover;
@@ -29,17 +34,18 @@
       color: white;
 
       h1 {
-        font-size: 90px;
-        line-height: 100px;
+        font-size: 48px;
+        line-height: 1.1;
       }
-      
+
       p {
+        margin-top: 0;
       }
 
       span {
         font-size: 14px;
       }
-      
+
       button {
         width: 50%;
         padding: 10px;
@@ -48,6 +54,11 @@
         color: rebeccapurple;
         font-weight: bold;
         cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #ddd;
+        }
       }
     }
 
@@ -56,34 +67,144 @@
       padding: 50px;
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 30px;
       justify-content: center;
 
-      h1 {
-      color: #92599E;
+      .register-title {
+        color: #92599e;
+        font-size: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 20px;
       }
-      
+
       form {
+        width: 100%;
+        max-width: 500px;
         display: flex;
         flex-direction: column;
-        gap: 30px;
-        
-        input {
-        border: none;
-        border-bottom: 1px solid lightgray;
-        padding: 20px 10px;
+        gap: 16px;
+
+        .name-entry {
+          display: flex;
+          gap: 16px;
         }
-        
+
+        input {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid lightgray;
+          padding: 20px 10px;
+          font-size: 1rem;
+          color: #333333;
+          box-sizing: border-box;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-bottom: 2px solid #92599e;
+          }
+        }
+
+        small.error-message {
+          color: #ff6f61;
+          margin-top: -15px;
+          margin-bottom: 10px;
+          font-size: 0.8rem;
+        }
+
+        .checkboxes {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          margin-top: 16px;
+          margin-bottom: 20px;
+
+          label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #92599e;
+            cursor: pointer;
+
+            input[type="checkbox"] {
+              width: 18px;
+              height: 18px;
+              accent-color: #92599e;
+              cursor: pointer;
+            }
+
+            a.link {
+              color: #92599e;
+              font-weight: bold;
+              text-decoration: none;
+              transition: color 0.3s ease;
+
+              &:hover {
+                color: #6a3d84;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
         button {
           width: 50%;
           padding: 10px;
           border: none;
-          background-color: #92599E;
+          background-color: #92599e;
           color: white;
           font-weight: bold;
           cursor: pointer;
+          align-self: center;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #6a3d84;
+          }
+        }
+
+        .login-redirect {
+          font-size: 20px; 
+          text-align: center;
+          margin-top: 15px;
+          color: #555; 
+
+          .link {
+            color: #92599e;
+            font-weight: bold;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
       }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .Register .card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .Register .left {
+    padding: 30px 20px;
+    h1 {
+      font-size: 32px;
+    }
+  }
+
+  .Register .right {
+    padding: 30px 20px;
+    form {
+      max-width: 100%;
     }
   }
 }
